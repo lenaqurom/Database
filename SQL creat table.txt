@@ -1,0 +1,97 @@
+CREATE TABLE EMPLOYEE
+(
+    EmployeeID     VARCHAR(10) NOT NULL,
+    FirstName      VARCHAR(35), 
+    LastName       VARCHAR(25), 
+    Street         VARCHAR(45), 
+    ZipCode        VARCHAR(12), 
+    PayRate        NUMBER,
+     CONSTRAINT pk_employee
+       PRIMARY KEY (EmployeeID)
+)
+create table ACCOUNTS
+(USERNAME varchar(50) not null,
+NAME varchar(20) not null,
+PASSWORD number(12) not null,
+SQ VARCHAR(20) not null,
+ANSWER varchar(10) not null,
+constraint PK_ACCOUNT primary key (PASSWORD) );
+
+create table ADMIN
+(admin_name varchar(50) not null,
+admin_password varchar(8) not null,
+constraint PK_admin primary key (admin_password) );
+
+CREATE TABLE ServiceRendered 
+( 
+    AppointmentID         VARCHAR(10) NOT NULL,
+    LineItemNumber        INTEGER NOT NULL, 
+    ServiceID             VARCHAR(10) NOT NULL, 
+    ServiceExtendedPrice  NUMBER, 
+    EmployeeID            VARCHAR(10) NOT NULL,
+    CONSTRAINT pk_ServiceRendered 
+        PRIMARY KEY (AppointmentID, LineItemNumber)
+)
+
+CREATE TABLE SalonService
+(
+    ServiceID         VARCHAR(10) NOT NULL, 
+    ServiceName       VARCHAR(35),
+    ServiceDuration   INTEGER, 
+    ServicePrice      NUMBER, 
+    ServiceMaterials  VARCHAR(255),
+    CONSTRAINT pk_salonservice
+        PRIMARY KEY (ServiceID)
+)
+
+CREATE TABLE CUSTOMER
+(
+    CustomerID   VARCHAR(10) NOT NULL,
+    FirstName    VARCHAR(35),
+    LastName     VARCHAR(35),
+    PhoneNumber  VARCHAR(15),
+    Street       VARCHAR(35),
+    ZipCode      VARCHAR(12),
+    Gender       VARCHAR(2),
+    CONSTRAINT pk_customer
+          PRIMARY KEY (CustomerID)
+)
+
+CREATE TABLE APPOINTMENT
+(
+    AppointmentID       VARCHAR(10) NOT NULL,
+    AppointmentDateTime VARCHAR2(30),
+    CustomerID          VARCHAR(10) NOT NULL,
+    CONSTRAINT pk_appointment
+          PRIMARY KEY (AppointmentID)
+)
+
+ALTER TABLE EMPLOYEE
+   ADD CONSTRAINT fk_employee_zipcodes
+     FOREIGN KEY (ZipCode) 
+        REFERENCES ZipCodes (ZipCode)
+
+ALTER TABLE CUSTOMER
+   ADD CONSTRAINT fk_customer_zipcodes
+     FOREIGN KEY (ZipCode) 
+        REFERENCES ZipCodes (ZipCode)
+
+ALTER TABLE APPOINTMENT
+   ADD CONSTRAINT fk_customer_appointment
+     FOREIGN KEY (CustomerID) 
+        REFERENCES CUSTOMER (CustomerID)
+
+ALTER TABLE ServiceRendered
+   ADD CONSTRAINT fk_ServiceRendered_Employee
+     FOREIGN KEY (EmployeeID) 
+        REFERENCES EMPLOYEE (EmployeeID)
+
+ALTER TABLE ServiceRendered
+   ADD CONSTRAINT fk_ServiceRendered_Appointment
+     FOREIGN KEY (AppointmentID) 
+        REFERENCES APPOINTMENT (AppointmentID)
+
+ALTER TABLE ServiceRendered
+   ADD CONSTRAINT fk_ServiceRendered_Service
+     FOREIGN KEY (ServiceID) 
+        REFERENCES SalonService (ServiceID)

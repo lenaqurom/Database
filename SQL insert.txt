@@ -1,0 +1,52 @@
+INSERT INTO ZipCodes VALUES ('P700', 'Hebron', 'PL');
+INSERT INTO ZipCodes VALUES ('P400', 'Nablus', 'PL');
+INSERT INTO ZipCodes VALUES ('P600', 'Ramallah', 'PL');
+INSERT INTO ZipCodes VALUES ('P100', 'Jerusalem', 'PL');
+INSERT INTO ZipCodes VALUES ('P300', 'Tulkarem', 'PL');
+
+INSERT INTO CUSTOMER VALUES ('C101', 'Jana', 'Salameh', '059-111-2222', '8989 Mashroa Rd', 'P400', 'F');
+INSERT INTO CUSTOMER VALUES ('C102', 'Tareq', 'Qurom', '059-222-3333', '65 Manara Rd', 'P600', 'M');
+INSERT INTO CUSTOMER VALUES ('C103', 'Murad', 'Ahmad', '059-222-2222', '8989 Palestine Rd', 'P400', 'M');
+INSERT INTO CUSTOMER VALUES ('C104', 'Jori', 'Salameh', '052-222-1111', '5235 SheikhJarrah St', 'P100', 'F');
+INSERT INTO CUSTOMER VALUES ('C105', 'Kareem', 'Hussain', '059-222-4444', '666 Tulkarem St', 'P300', 'M');
+INSERT INTO CUSTOMER VALUES ('C106', 'Suzan', 'Yacoub', '059-333-4444', '4200 Ibraheem Rd', 'P700', 'F');
+INSERT INTO CUSTOMER VALUES ('C107', 'Lamar', 'Osama', '056-333-5555', '1522 Main St', 'P100', 'F');
+INSERT INTO CUSTOMER VALUES ('C108', 'Lauren', 'Mohammed', '056-444-1313', '2360 Beira Rd', 'P600', 'F');
+
+
+INSERT INTO SalonService VALUES ('SV101', 'Men''s Haircut', 20, 22, 'None');
+INSERT INTO SalonService VALUES ('SV102', 'Women''s Haircut', 30, 32, 'None');
+INSERT INTO SalonService VALUES ('SV103', 'Child Haircut', 20, 15, 'None');
+INSERT INTO SalonService VALUES ('SV104', 'Women''s Hair Color', 60, 76, 'Color, Reagent, Gloves, Reagent Brush, Foil');
+INSERT INTO SalonService VALUES ('SV105', 'Women''s Hair Style', 45, 56, 'Shampoo, Conditioner');
+INSERT INTO SalonService VALUES ('SV106', 'Men''s Hair Style', 45, 46, 'Shampoo, Conditioner');
+
+INSERT INTO EMPLOYEE VALUES ('E300', 'Fadwa', 'Abu Beih', '46 Badore St', 'P400', 18);
+INSERT INTO EMPLOYEE VALUES ('E400', 'Rasha', 'Qasem', '12 Makhfiya St', 'P400', 22);
+INSERT INTO EMPLOYEE VALUES ('E500', 'Bana', 'Salon', '70 Al-Quds St  ', 'P400', 20);
+INSERT INTO EMPLOYEE VALUES ('E600', 'Haya', 'Moneer', '73 Makhfiya St', 'P600', 18);
+INSERT INTO EMPLOYEE VALUES ('E700', 'Haneen', 'Abu Laila', '2 Main St', 'P100', 23);
+INSERT INTO EMPLOYEE VALUES ('E800', 'Lana', 'Line', '215 Rafidia St', 'P400', 23);
+
+INSERT INTO APPOINTMENT VALUES ('A400', '10/22/2021 11:00:00 AM', 'C101');
+INSERT INTO APPOINTMENT VALUES ('A401', '11/08/2021 12:45:00 PM', 'C102');
+INSERT INTO APPOINTMENT VALUES ('A402', '12/09/2021 02:00:00 PM', 'C106');
+INSERT INTO APPOINTMENT VALUES ('A403', '12/18/2021 03:30:00 PM', 'C106');
+INSERT INTO APPOINTMENT VALUES ('A404', '12/21/2021 11:30:00 AM', 'C108');
+INSERT INTO APPOINTMENT VALUES ('A405', '12/31/2021 10:00:00 AM', 'C107');
+INSERT INTO APPOINTMENT VALUES ('A406', '01/11/2022 03:15:00 PM', 'C103');
+INSERT INTO APPOINTMENT VALUES ('A407', '01/12/2022 02:30:00 PM', 'C104');
+INSERT INTO APPOINTMENT VALUES ('A408', '01/22/2022 04:00:00 PM', 'C105');
+
+INSERT INTO ServiceRendered VALUES ('A400', 1, 'SV104', 75, 'E400');
+INSERT INTO ServiceRendered VALUES ('A400', 2, 'SV102', 25, 'E400');
+INSERT INTO ServiceRendered VALUES ('A401', 1, 'SV101', 22, 'E500');
+INSERT INTO ServiceRendered VALUES ('A402', 1, 'SV104', 75, 'E600');
+INSERT INTO ServiceRendered VALUES ('A402', 2, 'SV102', 30, 'E800');
+INSERT INTO ServiceRendered VALUES ('A403', 1, 'SV105', 50, 'E300');
+INSERT INTO ServiceRendered VALUES ('A404', 1, 'SV105', 55, 'E300');
+INSERT INTO ServiceRendered VALUES ('A405', 1, 'SV102', 30, 'E700');
+INSERT INTO ServiceRendered VALUES ('A405', 2, 'SV104', 70, 'E700');
+INSERT INTO ServiceRendered VALUES ('A405', 3, 'SV105', 50, 'E700');
+
+
